@@ -7,6 +7,7 @@
     <title>Important Contacts</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="manifest" href="/manifest.json">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name = "apple-mobile-web-app-capable" content = 'yes'>
     <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
     <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
@@ -22,130 +23,124 @@
     <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#fff">
     <meta name="theme-color" content="#3f51b5">
-    <style>
-        /*Styling of the outer box which contains the text field and the save button*/
-        #biggerBox
-        {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        /*Styling of the text field box. */
-        #box
-        {
-            width: 98%;
-            height: 800px;
-            font-weight: bold;
-            font-size: xx-large;
-            background: rgb(245, 244, 244);
-            padding: 15px;
-        }
 
-        .saveButton
-        {
-            width: 300px;
-            height: 70px;
-            border: none;
-            color: black;
-            border-radius: 4px;
-            transition: ease-out 0.3s;
-            font-size: 2rem;
-            outline: none;
-            border: 3px solid lightgreen;
-            background: rgba(248, 244, 244, 0.15);
-            position: relative;
-            z-index: 1;
-        }
-
-        .saveButton:hover
-        {
-            color: #fff;
-            /*when you hover over it, it will turn into a cursor*/
-            cursor: pointer;
-            color: #000;
-        }
-
-        /*before selector inserts something before the content of each selected element*/
-        .saveButton:before
-        {
-            transition: 0.5s all ease;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            right: 50%;
-            bottom: 0;
-            opacity: 0;
-            content: "";
-            background-color: lightgreen;
-        }
-
-        .saveButton:hover:before
-        {
-            transition: 0.5s all ease;
-            left: 0;
-            right: 0;
-            opacity: 1;
-            z-index: -1;
-        }
-
-        .impContactTitle
-        {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: column;
-            font-size: 3em;
-            /*Padding is the white space surrounding the object*/
-            padding: 10px 20%;
-        }
-        .logoName
-        {
-            cursor: pointer;
-            width: 200px;
-        }
-
-        .navLinks
-        {
-            margin-left: 500px;
-            list-style: none;
-        }
-
-        .navLinks li
-        {
-            display: inline-block;
-            padding: 0px 20px;
-        }
-
-
-        .navLinks li a
-        {
-            transition: all 0.3s ease 0s;
-        }
-
-        .navLinks li a:hover
-        {
-            color: #0088a9;
-        }
-
-    </style>
 </head>
-
-
-
 
 <!--When the window loads, first updateContent() function is called-->
 <body onload="updateContent()">
-    <header>
-      <img class="logoName" src="/src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
+    <!-- <header>
+      <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
       <nav>
         <ul class="navLinks">
           <li><a href="#" style="text-decoration: none">Resources</a></li>
           <li>  <a class="button" id = "logout"><button onclick = "location.href = 'index.html'">Logout</button></a> </li>
         </ul>
       </nav>
-    </header>
+    </header> -->
+    <div class="sidebar close">
+      <div class="logo-details">
+        <i class='bx bxs-plane-alt'></i>
+        <span class="logo_name">MavsAbroad Japan</span>    </div>
+      <ul class="nav-links">
+        <li>
+          <a class = "sub" href="importantContacts.html">
+            <i class='bx bx-phone' ></i>
+            <span class="link_name">Important Contacts</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a class = "sub" href="#">
+              <i class='bx bx-collection' ></i>
+              <span class="link_name">Resources</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow' ></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Resources</a></li>
+            <li><a href="#">Site Visit Photos</a></li>
+            <li><a href="#">Locations Preview</a></li>
+            <li><a href="#">Other resources</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="#">
+            <i class='bx bx-cloud' ></i>
+            <span class="link_name">Weather</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Weather</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="#">
+            <i class='bx bx-bell' ></i>
+            <span class="link_name">Announcement</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Announcement</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="tripGuide.html">
+            <i class='bx bx-location-plus' ></i>
+            <span class="link_name">Trip Guide</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="japanesePhrases.html">
+            <i class='bx bx-pencil' ></i>
+            <span class="link_name">Japanese Phrases</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="#">
+            <i class='bx bx-dollar-circle' ></i>
+            <span class="link_name">Currency Exchange</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Currency Exchange</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class = "sub" href="schedule.html">
+            <i class='bx bx-calendar' ></i>
+            <span class="link_name">Schedule</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="schedule.html">Schedule</a></li>
+          </ul>
+        </li>
+        <li>
+      <div class="profile-details">
+        <div class="profile-content">
+          <!--<img src="image/profile.jpg" alt="profileImg">-->
+        </div>
+        <div class="name-job">
+          <div class="profile_name">Pratik Mahato</div>
+          <div class="job">Developer</div>
+        </div>
+        <i class='bx bx-log-out' onclick = "location.href = 'index.html'"></i>
+      </div>
+    </li>
+  </ul>
+    </div>
+    <section class="home-section">
+      <div class="home-content">
+        <i class='bx bx-menu' ></i>
+        <img class="logoName" src="src/images/logoCropped.png" id = "logout" alt="">
+      </div>
+    </section>
+
 
     <!--This sets a horizontal line in the webpage -->
     <hr style="height:4px;border-width:10;color:gray;background-color:black">
@@ -168,6 +163,21 @@
 
     <script src = "src/js/app.js"></script>
     <script type = "module" src = "src/js/auth.js"></script>
+    <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
+    </script>
 
 </body>
 </html>

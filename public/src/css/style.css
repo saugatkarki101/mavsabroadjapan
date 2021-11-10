@@ -1,9 +1,11 @@
+/* This is for homepage and all other features besides login and signup */
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 *
 {
     font-family: 'Source Sans Pro', sans-serif;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -49,82 +51,6 @@ header
     width: 200px;
 }
 
-.navLinks
-{
-    margin-left: 500px;
-    list-style: none;
-}
-
-.navLinks li
-{
-    display: inline-block;
-    padding: 0px 10px;
-}
-
-
-.navLinks li a
-{
-    color: black;
-    transition: all 0.3s ease 0s;
-}
-
-.navLinks li a:hover
-{
-    color: #0088a9;
-}
-
-#impContacts
-{
-    padding: 9px 25px;
-    background-color: rgba(0,0,0,0);
-    border: 3px solid rgb(226, 98, 98);
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-#logout
-{
-  background-color: rgba(0,0,0,0);
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-
-/*
-.nav
-{
-    width: 100%;
-    background: black;
-    overflow: auto;
-}
-
-
-ul
-{
-    padding: 0;
-    margin: 0 0 0 150px;
-    list-style: none;
-}
-
-li
-{
-float: left;
-}
-
-nav a
-{
-    width: 100px;
-    display: block;
-    padding: 20px 15px;
-    text-decoration: none;
-    font-family: Arial;
-    color: #f2f2f2;
-    text-align: center;
-}
-
-*/
 .biggerContainer
 {
     height: 100vh;
@@ -412,65 +338,6 @@ flex items*/
     font-size: large;
 }
 
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
- .dropbtn:hover{
-  color:#0088a9;
-}
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  font-size: 14px;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-#logout:hover
-{
-  color: #0088a9;
-}
-
-#impContacts:hover
-{
-  color: #0088a9;
-}
-
 .sidebar{
   position: fixed;
   top: 0;
@@ -499,7 +366,7 @@ flex items*/
   line-height: 50px;
 }
 .sidebar .logo-details .logo_name{
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
@@ -707,7 +574,212 @@ flex items*/
   font-size: 26px;
   font-weight: 600;
 }
-@media (max-width: 420px) {
+
+/*Styling of the outer box which contains the text field and the save button*/
+#biggerBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-left: 62px;
+}
+/*Styling of the text field box. */
+#box
+{
+    width: 98%;
+    height: 100%;
+    font-weight: bold;
+    font-size: xx-large;
+    background: rgb(245, 244, 244);
+    padding: 15px;
+}
+
+.saveButton
+{
+    width: 300px;
+    height: 70px;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    transition: ease-out 0.3s;
+    font-size: 2rem;
+    outline: none;
+    border: 3px solid lightgreen;
+    background: rgba(248, 244, 244, 0.15);
+    position: relative;
+    z-index: 1;
+]}
+
+.saveButton:hover
+{
+    color: #fff;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+    color: #000;
+}
+
+/*before selector inserts something before the content of each selected element*/
+.saveButton:before
+{
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: lightgreen;
+}
+
+.saveButton:hover:before
+{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.impContactTitle
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3em;
+    /*Padding is the white space surrounding the object*/
+    padding-left: 75px;
+    margin-left: 10px;
+}
+
+.swipercontainer
+{
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.swiper
+{
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide
+{
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 600px;
+ -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+}
+
+.swiper-3d .swiper-slide-shadow-left
+.swiper-3d .swiper-slide-shadow-right
+{
+  background-image: none;
+}
+
+.swipercontainer .card
+{
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  background: #333;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+.swipercontainer .card .layer
+{
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(#03a9f4, #e91ee3);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.swipercontainer .card:hover .layer
+{
+  top: 0;
+}
+
+.swipercontainer .card .content
+{
+  position: relative;
+  z-index: 2;
+}
+
+.swipercontainer .card .content p
+{
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+form input{
+float: left;
+width: 25%;
+border: 0;
+border-bottom: 1px solid #eee;
+padding: 10px;
+display: block;
+box-sizing: border-box;
+font-size: 14px;
+padding-left: 70px;
+margin-left: 10px;
+}
+
+form input:focus{
+outline: none;
+border-bottom: 3px solid #88236f;
+padding-bottom: 8px;
+transition: all ease 0.2s;
+}
+
+form:after{
+content: '';
+clear: both;
+display: block;
+}
+
+.phr{
+border: 0;
+background: #fff;
+border-radius: 10px;
+padding: 13px;
+width: 14%;
+box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
+font-weight: bold;
+font-family: ubuntu;
+letter-spacing: 1px;
+color: #999;
+}
+
+.phr:hover
+{
+    color: blue;
+    /*when you hover over it, it will turn into a cursor*/
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
   /* .sidebar.close .nav-links li .sub-menu{
     display: none;
   } */
@@ -734,4 +806,183 @@ flex items*/
     justify-content: space-evenly;
     padding-left: 80px;
   }
+
+  #box
+  {
+    font-size: 16px;
+  }
+
+  .saveButton
+  {
+    width: 200px;
+    font-size: 18px;
+  }
+
+  .impContactTitle
+  {
+    font-size: 26px;
+  }
+
+  form input
+  {
+    float: none;
+    width: 80%;
+  }
+
+  .phr
+  {
+    padding-left: 65px;
+    width: 60%;
+    color: #3cb371;
+  }
+
+  .swipercontainer
+  {
+    padding-left: 60px;
+  }
+
+  .title
+  {
+    font-size: 30px;
+    padding: 1em 0 1em 62px;
+  }
 }
+
+/* All of these styles were used for previous navbar,
+keeping here just for reference */
+
+/* .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones
+  margin: 0; /* Important for vertical align on mobile phones
+}
+
+ .dropbtn:hover{
+  color:#0088a9;
+}
+/* Dropdown content (hidden by default)
+.dropdown-content {
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#logout:hover
+{
+  color: #0088a9;
+}
+
+#impContacts:hover
+{
+  color: #0088a9;
+} */
+
+/* .navLinks
+{
+    margin-left: 500px;
+    list-style: none;
+}
+
+.navLinks li
+{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+
+.navLinks li a
+{
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover
+{
+    color: #0088a9;
+} */
+/*
+#impContacts
+{
+    padding: 9px 25px;
+    background-color: rgba(0,0,0,0);
+    border: 3px solid rgb(226, 98, 98);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#logout
+{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+} */
+
+/*
+.nav
+{
+    width: 100%;
+    background: black;
+    overflow: auto;
+}
+
+
+ul
+{
+    padding: 0;
+    margin: 0 0 0 150px;
+    list-style: none;
+}
+
+li
+{
+float: left;
+}
+
+nav a
+{
+    width: 100px;
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: Arial;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+*/

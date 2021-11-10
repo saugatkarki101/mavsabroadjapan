@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="manifest" href="/manifest.json">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name = "apple-mobile-web-app-capable" content = 'yes'>
     <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
     <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
@@ -28,16 +29,109 @@
 
 <body >
 
-      <header>
-        <img class="logoName" src="/public/src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
-      <nav>
-        <ul class="navLinks">
-          <li>  <a class="button"> <button onclick = "location.href = 'importantContacts.html'"> Important Contacts </button> </a></li>
-          <li><a href="#" id="resource" style="text-decoration: none" onclick="saveMarkerInfo()">Resources</a></li>
-          <li>  <a class="button" id = "logout"><button onclick = "location.href = 'index.html'">Logout</button></a> </li>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxs-plane-alt'></i>
+      <span class="logo_name">MavsAbroad Japan</span>    </div>
+    <ul class="nav-links">
+      <li>
+        <a class = "sub" href="importantContacts.html">
+          <i class='bx bx-phone' ></i>
+          <span class="link_name">Important Contacts</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
         </ul>
-      </nav>
-      </header>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a class = "sub" href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Resources</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Resources</a></li>
+          <li><a href="#">Site Visit Photos</a></li>
+          <li><a href="#">Locations Preview</a></li>
+          <li><a href="#">Other resources</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="#">
+          <i class='bx bx-cloud' ></i>
+          <span class="link_name">Weather</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Weather</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="#">
+          <i class='bx bx-bell' ></i>
+          <span class="link_name">Announcement</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Announcement</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="tripGuide.html">
+          <i class='bx bx-location-plus' ></i>
+          <span class="link_name">Trip Guide</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="japanesePhrases.html">
+          <i class='bx bx-pencil' ></i>
+          <span class="link_name">Japanese Phrases</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="#">
+          <i class='bx bx-dollar-circle' ></i>
+          <span class="link_name">Currency Exchange</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Currency Exchange</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="schedule.html">
+          <i class='bx bx-calendar' ></i>
+          <span class="link_name">Schedule</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="schedule.html">Schedule</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Pratik Mahato</div>
+        <div class="job">Developer</div>
+      </div>
+      <i class='bx bx-log-out' onclick = "location.href = 'index.html'"></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <img class="logoName" src="src/images/logoCropped.png" id = "logout" alt="">
+    </div>
+  </section>
       <!--This sets a horizontal line in the webpage. -->
       <hr style="height:4px;border-width:10;color:gray;background-color:black">
 
@@ -51,7 +145,7 @@ Script tags are used to embed JavaScript. Script element either contains scripti
 points to external script file through the src attribute.
 -->
 
-     <div id="map" style="height: 750px; width: 100%;"></div>
+     <div id="map" style="height: 750px; width: 100%; "></div>
 
      <script type="text/javaScript" src="src/js/trip.js"></script>
 
@@ -62,6 +156,21 @@ points to external script file through the src attribute.
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfYDMunfgquVlfLbCG73vsMiQhhtquXco&callback=initMap"
       ></script>
+      <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+       let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+       arrowParent.classList.toggle("showMenu");
+        });
+      }
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+      });
+      </script>
 
 </body>
 

@@ -10,7 +10,9 @@ so the style is written here for now --->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>MavsAbroad Japan: Japanese Phrases</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
     <link rel="manifest" href="/manifest.json">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name = "apple-mobile-web-app-capable" content = 'yes'>
     <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
     <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
@@ -27,203 +29,113 @@ so the style is written here for now --->
     <meta name="msapplication-TileColor" content="#fff">
     <meta name="theme-color" content="#3f51b5">
 
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
-    *
-    {
-      font-family: 'Source Sans Pro', sans-serif;
-      letter-spacing: 4px;
-      margin: 0;
-      padding: 0;
-    }
-    .swipercontainer
-    {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .swiper
-    {
-      width: 100%;
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-
-    .swiper-slide
-    {
-      background-position: center;
-      background-size: cover;
-      width: 400px;
-      height: 600px;
-     -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
-    }
-
-    .swiper-3d .swiper-slide-shadow-left
-    .swiper-3d .swiper-slide-shadow-right
-    {
-      background-image: none;
-    }
-
-    .swipercontainer .card
-    {
-      position: relative;
-      width: 80%;
-      height: 80%;
-      margin: 0 auto;
-      background: #333;
-      padding: 60px 40px;
-      overflow: hidden;
-    }
-
-    .swipercontainer .card .layer
-    {
-      position: absolute;
-      top: calc(100% - 2px);
-      left: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      background: linear-gradient(#03a9f4, #e91ee3);
-      z-index: 1;
-      transition: 0.5s;
-    }
-
-    .swipercontainer .card:hover .layer
-    {
-      top: 0;
-    }
-
-    .swipercontainer .card .content
-    {
-      position: relative;
-      z-index: 2;
-    }
-
-    .swipercontainer .card .content p
-    {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    header
-    {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 7%;
-    }
-
-    .logoName
-    {
-      cursor: pointer;
-      width: 200px;
-    }
-
-    .navLinks
-    {
-      margin-left: 500px;
-      list-style: none;
-    }
-
-    .navLinks li
-    {
-      display: inline-block;
-      padding: 0px 20px;
-    }
-
-
-    .navLinks li a
-    {
-        color: black;
-        transition: all 0.3s ease 0s;
-    }
-
-    .navLinks li a:hover
-    {
-        color: black;
-    }
-
-    #impContacts
-    {
-        padding: 9px 25px;
-        background-color: rgba(0,0,0,0);
-        border: 3px solid rgb(226, 98, 98);
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease 0s;
-    }
-
-    #logout
-    {
-      background-color: rgba(0,0,0,0);
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease 0s;
-    }
-
-    form input{
-    float: left;
-    width: 25%;
-    margin: 0;
-    border: 0;
-    border-bottom: 1px solid #eee;
-    margin: 0 1%;
-    padding: 10px;
-    display: block;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-form input:focus{
-    outline: none;
-    border-bottom: 3px solid #88236f;
-    padding-bottom: 8px;
-    transition: all ease 0.2s;
-}
-
-form:after{
-    content: '';
-    clear: both;
-    display: block;
-}
-
-.phr{
-    border: 0;
-    background: #fff;
-    border-radius: 10px;
-    padding: 13px;
-    width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
-    font-weight: bold;
-    font-family: ubuntu;
-    letter-spacing: 1px;
-    color: #999;
-}
-      </style>
   </head>
 
     <body>
-      <header>
-        <img class="logoName" src="/src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
-      <nav>
-        <ul class="navLinks">
-          <li>  <a class="button"> <button id = "impContacts" onclick = "location.href = 'importantContacts.html'"> Important Contacts </button> </a></li>
-          <li><a href="#" style="text-decoration: none">Resources</a></li>
-          <li>  <a class="button" id = "logout"><button id = "logout" onclick = "location.href = 'index.html'">Logout</button></a> </li>
-        </ul>
-      </nav>
 
-    </header>
+      <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxs-plane-alt'></i>
+          <span class="logo_name">MavsAbroad Japan</span>    </div>
+        <ul class="nav-links">
+          <li>
+            <a class = "sub" href="importantContacts.html">
+              <i class='bx bx-phone' ></i>
+              <span class="link_name">Important Contacts</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a class = "sub" href="#">
+                <i class='bx bx-collection' ></i>
+                <span class="link_name">Resources</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Resources</a></li>
+              <li><a href="#">Site Visit Photos</a></li>
+              <li><a href="#">Locations Preview</a></li>
+              <li><a href="#">Other resources</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="#">
+              <i class='bx bx-cloud' ></i>
+              <span class="link_name">Weather</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Weather</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="#">
+              <i class='bx bx-bell' ></i>
+              <span class="link_name">Announcement</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Announcement</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="tripGuide.html">
+              <i class='bx bx-location-plus' ></i>
+              <span class="link_name">Trip Guide</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="japanesePhrases.html">
+              <i class='bx bx-pencil' ></i>
+              <span class="link_name">Japanese Phrases</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="#">
+              <i class='bx bx-dollar-circle' ></i>
+              <span class="link_name">Currency Exchange</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Currency Exchange</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class = "sub" href="schedule.html">
+              <i class='bx bx-calendar' ></i>
+              <span class="link_name">Schedule</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="schedule.html">Schedule</a></li>
+            </ul>
+          </li>
+          <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <!--<img src="image/profile.jpg" alt="profileImg">-->
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Pratik Mahato</div>
+            <div class="job">Developer</div>
+          </div>
+          <i class='bx bx-log-out' id = "logout"></i>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <section class="home-section">
+        <div class="home-content">
+          <i class='bx bx-menu' ></i>
+          <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
+        </div>
+      </section>
       <!-- Swiper -->
       <form id = "addPhrases">
           <input type="text" name="English" placeholder="English meaning">
@@ -250,7 +162,7 @@ form:after{
           centeredSlides: true,
           slidesPerView: "auto",
           coverflowEffect: {
-            // rotate: 50,
+            rotate: 0,
             stretch: 0,
             depth: 100,
             modifier: 1,
@@ -269,9 +181,27 @@ form:after{
       </script>
       <script type = "module" src = "src/js/auth.js"></script>
       <script src = "src/js/app.js"></script>
+      <script src = "src/js/feed.js"></script>
       <script type = "module" src = "src/js/phrases.js"></script>
+      <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+       let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+       arrowParent.classList.toggle("showMenu");
+        });
+      }
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+      });
+      </script>
     </body>
   </html>
+
+  <!-- These are the hardcoded values thats not necessary anymore but kept for reference -->
 
   <!-- <div class="swiper-slide">
     <div class = "card">

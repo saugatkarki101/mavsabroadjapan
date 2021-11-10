@@ -48,6 +48,7 @@ const logout = document.getElementById("logout")
   signOut(auth).then(() => {
     console.log('User signed out');
   });
+  window.location.href = "index.html";
 };}
 
 // Login

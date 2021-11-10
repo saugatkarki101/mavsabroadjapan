@@ -1,5 +1,14 @@
 // import { deferredPrompt } from './app.js';
 var TripGuideButton = document.querySelector('#trip');
+// var phraseButton = document.getElementsByClassName("phr")[0];
+//
+// phraseButton.addEventListener("touchstart", function(){
+//   phraseButton.classList.add("HoverButton");
+// });
+// phraseButton.addEventListener("touchend", function(){
+//   phraseButton.classList.remove("HoverButton");
+// });
+
 function openTripGuide() {
   if(deferredPrompt) {
     deferredPrompt.prompt();
