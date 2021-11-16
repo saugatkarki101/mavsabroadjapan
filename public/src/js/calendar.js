@@ -1,3 +1,6 @@
+import { database } from './firebase.js';
+import { getDatabase, ref, set, child, update, remove, get} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+
 var calendar = document.getElementById("calendar-table");
 var gridTable = document.getElementById("table-body");
 var currentDate = new Date();

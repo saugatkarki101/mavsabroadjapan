@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--this is the styling link, used to style the schedule-->
     <link rel="stylesheet" href="src/css/scheduleStyle.css" />
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="manifest" href="/manifest.json">
     <meta name = "apple-mobile-web-app-capable" content = 'yes'>
     <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
@@ -28,115 +27,20 @@
   </head>
 
   <body>
-    <div class="sidebar close">
-      <div class="logo-details">
-        <i class='bx bxs-plane-alt'></i>
-        <span class="logo_name">MavsAbroad Japan</span>    </div>
-      <ul class="nav-links">
-        <li>
-          <a class = "sub" href="importantContacts.html">
-            <i class='bx bx-phone' ></i>
-            <span class="link_name">Important Contacts</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
-          </ul>
-        </li>
-        <li>
-          <div class="iocn-link">
-            <a class = "sub" href="#">
-              <i class='bx bx-collection' ></i>
-              <span class="link_name">Resources</span>
-            </a>
-            <i class='bx bxs-chevron-down arrow' ></i>
-          </div>
-          <ul class="sub-menu">
-            <li><a class="link_name" href="#">Resources</a></li>
-            <li><a href="#">Site Visit Photos</a></li>
-            <li><a href="#">Locations Preview</a></li>
-            <li><a href="#">Other resources</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="#">
-            <i class='bx bx-cloud' ></i>
-            <span class="link_name">Weather</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Weather</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="#">
-            <i class='bx bx-bell' ></i>
-            <span class="link_name">Announcement</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Announcement</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="tripGuide.html">
-            <i class='bx bx-location-plus' ></i>
-            <span class="link_name">Trip Guide</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="japanesePhrases.html">
-            <i class='bx bx-pencil' ></i>
-            <span class="link_name">Japanese Phrases</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="#">
-            <i class='bx bx-dollar-circle' ></i>
-            <span class="link_name">Currency Exchange</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Currency Exchange</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class = "sub" href="schedule.html">
-            <i class='bx bx-calendar' ></i>
-            <span class="link_name">Schedule</span>
-          </a>
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="schedule.html">Schedule</a></li>
-          </ul>
-        </li>
-        <li>
-      <div class="profile-details">
-        <div class="profile-content">
-          <!--<img src="image/profile.jpg" alt="profileImg">-->
-        </div>
-        <div class="name-job">
-          <div class="profile_name">Pratik Mahato</div>
-          <div class="job">Developer</div>
-        </div>
-        <i class='bx bx-log-out' id = "logout"></i>
-      </div>
-    </li>
-  </ul>
-    </div>
-    <section class="home-section">
-      <div class="home-content">
-        <i class='bx bx-menu' ></i>
+    <header>
+        <!--The navigation bar, placed at the top of the webpage.-->
         <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
-      </div>
-    </section>
 
+           <a class="button"> <button onclick = "location.href = 'importantContacts.html'"> Important Contacts </button> </a>
+            <a href="#" style="text-decoration: none">Resources</a>
+             <a class="button" id = "logout"><button onclick = "location.href = 'index.html'">Logout</button></a>
+
+      </header>
     <div class="mobile-header z-depth-1">
 
       <div class="row">
         <div class="col-2">
-          <a href="#" data-activates="sideba" class="button-collapse" style="">
+          <a href="#" data-activates="sidebar" class="button-collapse" style="">
             <i class="material-icons">menu</i>
           </a>
         </div>
@@ -149,13 +53,13 @@
 
     <div class="main-wrapper">
         <!--Side bar and basic display classes-->
-      <div class="sideba-wrapper z-depth-2 side-nav fixed" id="sideba">
+      <div class="sidebar-wrapper z-depth-2 side-nav fixed" id="sidebar">
 
-        <div class="sideba-title">
+        <div class="sidebar-title">
           <h4>Schedule</h4>
           <h5 id="eventDayName">Date</h5>
         </div>
-        <div class="sideba-events" id="sidebaEvents">
+        <div class="sidebar-events" id="sidebarEvents">
           <div class="empty-message">Sorry, nothing scheduled on selected date</div>
         </div>
 
@@ -252,24 +156,10 @@
       $(".button-collapse").sideNav();
     </script>
     <!--Javascript code for the backend of the schedule-->
-    <script src="src/js/calendar.js"></script>
     <script type = "module" src = "src/js/auth.js"></script>
+    <script type = "module" src="src/js/calendar.js"></script>
     <script src = "src/js/app.js"></script>
-    <script>
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
-      });
-    }
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-menu");
-    console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("close");
-    });
-    </script>
+    <script src = "src/js/feed.js"></script>
   </body>
 </html>
 

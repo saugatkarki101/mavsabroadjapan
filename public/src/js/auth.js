@@ -7,33 +7,34 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 // signup
 const signupForm = document.querySelector('#signup-form');
 
-  if(signupForm) {
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+if(signupForm) {
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  // get user info
-  const username = signupForm['signup-username'].value;
-  const email = signupForm['signup-email'].value;
-  const password = signupForm['signup-password'].value;
-  const cpassword = signupForm['signup-cpassword'].value;
+    // get user info
+    const username = signupForm['signup-username'].value;
+    const email = signupForm['signup-email'].value;
+    const password = signupForm['signup-password'].value;
+    const cpassword = signupForm['signup-cpassword'].value;
 
-  while(password != cpassword)
-  {
-
-  }
-  // sign up the user
-  createUserWithEmailAndPassword(auth,email, password).then(cred => {
-    const user = cred.user;
-    //user.updateProfile({
-    //  displayName: username
-  //  });
-    signupForm.reset();
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-
+    if(password != cpassword)
+    {
+      return;
+    }
+    else {
+      // sign up the user
+      createUserWithEmailAndPassword(auth,email, password).then(cred => {
+        const user = cred.user;
+        //user.updateProfile({
+        //  displayName: username
+        //  });
+        signupForm.reset();
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+    }
 //  sendEmailVerification(auth.currentUser).then(() => {
 //
 //  });
