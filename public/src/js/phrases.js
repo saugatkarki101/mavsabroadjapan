@@ -1,6 +1,8 @@
-import { db } from './firebase.js';
+import { db, auth } from './firebase.js';
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+import {  onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
 
+// const signUser = auth.currentUser;
 const phrasesList = document.querySelector('#swiper-wrapper');
 const form = document.querySelector('#addPhrases');
 
@@ -24,6 +26,7 @@ function renderPhrases(doct){
   img.setAttribute("class", "quote");
   img.setAttribute("src", "src/images/quote.png");
   card.setAttribute("data-id", doct.id);
+  cross.setAttribute("class", "cross-admin");
   slideDiv.setAttribute("data-id", doct.id);
   cross.textContent = 'x';
   cross.style.fontSize = "20px";
@@ -46,13 +49,23 @@ function renderPhrases(doct){
   phrasesList.appendChild(slideDiv);
 
   // deleting data
-cross.addEventListener('click', (e) => {
+  cross.addEventListener('click', (e) => {
     e.stopPropagation();
     let id = e.target.parentElement.getAttribute('data-id');
     console.log(id);
     phrasesList.removeChild(phrasesList.querySelector('[data-id=' + id + ']'));
     deleteDoc(doc(collection(db,"phrases"), id));
-});
+  });
+
+  onAuthStateChanged(auth, (user) => {
+    if(user){
+      cross.style.display = 'block';
+    }
+    else{
+      cross.style.display = 'none';
+      }
+
+  });
 }
 
 // getDocs(collection(db,"phrases")).then(snapshot => {
@@ -97,7 +110,7 @@ onSnapshot(q, (snapshot) => {
         if(change.type == 'added'){
             renderPhrases(change.doc);
         } else if (change.type == 'removed'){
-          
+
         }
     });
 });

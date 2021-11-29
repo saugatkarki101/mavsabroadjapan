@@ -1,11 +1,9 @@
-/* This is for homepage and all other features besides login and signup */
-
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 *
 {
     font-family: 'Source Sans Pro', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,8 +12,8 @@
 html,body
 {
     /*These two statements below help remove horizontal and vertical scroll bars*/
-  /*  overflow-x: hidden;*/
-  /*  overflow-y: hidden; */
+    overflow-x: show; /*horizontal scroll bar*/
+    overflow-y: show; /*vertical scroll bar*/
 }
 
 header
@@ -51,6 +49,73 @@ header
     width: 200px;
 }
 
+.navLinks
+{
+    margin-left: 500px;
+    list-style: none;
+}
+
+.navLinks li
+{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+
+.navLinks li a
+{
+    color:black;
+    transition: all 0.3s ease 0s;
+}
+
+.navLinks li a:hover
+{
+    color:black;
+}
+
+button
+{
+    padding: 9px 25px;
+    background-color: rgba(0,0,0,0);
+    border: 3px solid rgb(226, 98, 98);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+/*
+.nav
+{
+    width: 100%;
+    background: black;
+    overflow: auto;
+}
+
+
+ul
+{
+    padding: 0;
+    margin: 0 0 0 150px;
+    list-style: none;
+}
+
+li
+{
+float: left;
+}
+
+nav a
+{
+    width: 100px;
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: Arial;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+*/
 .biggerContainer
 {
     height: 100vh;
@@ -59,34 +124,51 @@ header
     background-size: cover;
     background-position: 50% 50%;
     background-image: url("../images/mountain\ and\ temple.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    padding-left: 20px;
 }
+
 
 /*this is the flex container and inside it are its children called
 flex items*/
 /* . means its a class*/
+
 .container
 {
-    /*
-    Flex gives the container the ability to alter its items' width/height to
-    best fill the available space(mostly to accomodate to all kind of
-    display devices and screen sizes). A flex container expands items to fill
-    available free space or shrinks them to prevent overflow.
-    */
-    position: absolute;
+
+/*    position: absolute; */
     height: 100%;
     width: 100%;
+    position: relative;
+/*
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    */
+    /*
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    */
+
+}
+
+.buttonContainer
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+
 
     display: flex;
-    /*establishes the direction flex items are places in the flex container*/
+    /*establishes the direction flex items are placed in the flex container*/
     flex-direction: column;
     justify-content: space-evenly;
     /*This is the default behavior for how flex items are laid out
     along the cross axis. */
-    align-items: center;
-    text-align: center;
-    min-height: 80vh;
+/*    align-items: center;
+    text-align: center; */
 }
 
 .firstButton
@@ -813,9 +895,16 @@ color: #999;
 
   .container
   {
-    height: 90%;
+    flex-direction: column;
     justify-content: space-evenly;
-    padding-left: 80px;
+  }
+
+  .buttonContainer
+  {
+    height: 90%;
+    width: 70%;
+    justify-content: space-evenly;
+    position: absolute;
   }
 
   #box

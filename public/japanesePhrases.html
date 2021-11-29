@@ -31,8 +31,7 @@ so the style is written here for now --->
 
   </head>
 
-    <body>
-
+    <body class = "phraseimg">
       <div class="sidebar close">
         <div class="logo-details">
           <i class='bx bxs-plane-alt'></i>
@@ -99,12 +98,12 @@ so the style is written here for now --->
             </ul>
           </li>
           <li>
-            <a class = "sub" href="#">
+            <a class = "sub" href="currency.html">
               <i class='bx bx-dollar-circle' ></i>
               <span class="link_name">Currency Exchange</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Currency Exchange</a></li>
+              <li><a class="link_name" href="currency.html">Currency Exchange</a></li>
             </ul>
           </li>
           <li>
@@ -133,7 +132,7 @@ so the style is written here for now --->
       <section class="home-section">
         <div class="home-content">
           <i class='bx bx-menu' ></i>
-          <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'homepage.html'" alt="">
+          <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'index.html'" alt="">
         </div>
       </section>
       <!-- Swiper -->
@@ -166,7 +165,7 @@ so the style is written here for now --->
             stretch: 0,
             depth: 100,
             modifier: 1,
-            slideShadows: true,
+            slideShadows: false,
           },
           pagination: {
             el: ".swiper-pagination",
@@ -177,6 +176,7 @@ so the style is written here for now --->
           },
           preventClicks: false,
           preventClicksPropagation: false,
+          allowTouchMove: true,
         });
       </script>
       <script type = "module" src = "src/js/auth.js"></script>

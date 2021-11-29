@@ -2,7 +2,8 @@
 
 //import required variables and functions
 import { auth, db } from './firebase.js';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
+import { collection, addDoc, getDocs, doc, getDoc  } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
 // signup
 const signupForm = document.querySelector('#signup-form');
@@ -25,9 +26,14 @@ if(signupForm) {
       // sign up the user
       createUserWithEmailAndPassword(auth,email, password).then(cred => {
         const user = cred.user;
-        //user.updateProfile({
-        //  displayName: username
-        //  });
+        updateProfile(auth.currentUser, {
+        displayName: username
+       })
+        addDoc(collection(db,'users'),{
+            Username: username,
+            Password: cpassword,
+            Email: email
+        });
         signupForm.reset();
     })
       .catch((error) => {
@@ -65,7 +71,7 @@ loginForm.addEventListener('submit', (e) => {
 
   signInWithEmailAndPassword(auth, email, password).then(cred => {
     loginForm.reset();
-    window.location.href = "homepage.html";
+    window.location.href = "index.html";
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -78,11 +84,40 @@ loginForm.addEventListener('submit', (e) => {
 });}
 
 onAuthStateChanged(auth, (user) => {
+  const addForm = document.getElementById("addPhrases");
+  const logoutSymbol = document.getElementById("logout");
+  const saveSymbol = document.getElementById("saveNotice");
+  const box = document.getElementById("box");
+  const noticeBoardContenti = document.getElementsByClassName("noticeBoardContent")[0];
+  const save1Symbol = document.getElementsByClassName("saveButton")[0];
+  const nameJob = document.getElementsByClassName("name-job")[0];
+  const signUpSymbol = document.getElementsByClassName("sign")[0];
+  const loginSymbol = document.getElementsByClassName("log")[0];
+  const profileName = document.getElementsByClassName("profile_name")[0];
   if(user){
     console.log('user logged in: ', user);
+    if(addForm) { addForm.style.display = "block";}
+    if(logoutSymbol) {logoutSymbol.style.display = "block";}
+    if(nameJob) {nameJob.style.display = "block";}
+    if(signUpSymbol) {signUpSymbol.style.display = "block";}
+    if(saveSymbol) {saveSymbol.style.display = "block";}
+    if(save1Symbol) {save1Symbol.style.display = "block";}
+    if(box) {box.setAttribute('contenteditable', true);}
+    if(noticeBoardContenti) {noticeBoardContenti.readonly = false;}
+    if(loginSymbol) {loginSymbol.style.display = "none";}
+    if(profileName) {profileName.textContent = user.displayName;}
   }
   else{
     console.log('user logged out');
+    if(addForm) {addForm.style.display = "none";}
+    if(logoutSymbol) {logoutSymbol.style.display = "none";}
+    if(nameJob) {nameJob.style.display = "none";}
+    if(signUpSymbol) {signUpSymbol.style.display = "none";}
+    if(saveSymbol) {saveSymbol.style.display = "none";}
+    if(box) {box.setAttribute('contenteditable', false);}
+    if(noticeBoardContenti) {noticeBoardContenti.setAttribute('readonly', true);}
+    if(save1Symbol) {save1Symbol.style.display = "none";}
+    if(loginSymbol) {loginSymbol.style.display = "block";}
     }
 
 });

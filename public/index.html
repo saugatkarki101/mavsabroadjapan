@@ -1,81 +1,492 @@
-
-<!--- This is for login page
-First page that user interacts with the webapp --->
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-        <meta charset="UTF-8">
-        <title>MavsAbroad Login Page</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="src/css/style1.css">
-        <link rel="manifest" href="/manifest.json">
-        <meta name = "apple-mobile-web-app-capable" content = 'yes'>
-        <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
-        <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
-        <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
-        <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
-        <meta name="msapplication-TileColor" content="#fff">
-        <meta name="theme-color" content="#3f51b5">
-        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  </head>
-  <body>
-      <div class="bigField">
-        <h1>
-          <img class="logoName" src="src/images/logoCropped-removebg.png" alt="">
-        </h1>
-        <form id = "login-form" method="submit" action="homepage.html">
-          <div class="info">
-            <input type="text" name = "userid" id ="login-username" required>
-            <span></span>
-            <label class = "fa fa-user"> Email Address </label>
-          </div>
-          <div class="info">
-            <input type="password" class="pass-key" name = "pswrd" id = "login-password" required>
-            <span class="show">SHOW</span>
-            <span></span>
-            <label class = "fa fa-lock"> Password </label>
-          </div>
-          <div class="remember">
-            <label><input type="checkbox" name=""> Remember me </label>
-          </div>
-          <div class="authenication">Forgot Password?</div>
-          <input type="submit" value="Login">
-          <div class="link_for_signup">
-            Not a member? <a href="signup.html">Signup</a>
-          </div>
-        </form>
-      </div>
-      <script defer src="/src/js/material.min.js"></script>
-      <script>
-               const Visibility = document.querySelector('.pass-key');
-               const eye = document.querySelector('.show');
-               eye.addEventListener('click', function(){
-                if(Visibility.type === "password"){
-                  Visibility.type = "text";
-                  eye.textContent = "HIDE";
-                  eye.style.color = "#3498db";
-                }else{
-                  Visibility.type = "password";
-                  eye.textContent = "SHOW";
-                  eye.style.color = "#2691d9";
-                }
-               });
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable= no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>MavsAbroad Japan</title>
+    <link rel="stylesheet" href="src/css/homepage.css">
+    <link rel="manifest" href="/manifest.json">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name = "apple-mobile-web-app-capable" content = 'yes'>
+    <meta name = "apple-mobile-web-app-status-bar-style" content = "black">
+    <meta name = "apple-mobile-web-app-title" content = "MavsAbroad Japan">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/src/images/icons/apple-icon-180x180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#3f51b5">
+    <style>
+/*
+#openNoticeBoard, #close, #saveNotice
+       {
+           background-color: #47a386;
+           border: 0;
+           border-radius: 5px;
+           color: black;
+           padding: 10px 25px;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+           cursor: pointer;
+       }
 
-            </script>
-        <script src = "src/js/app.js"></script>
-       <script src = "src/js/feed.js"></script>
-       <script type = "module" src = "src/js/firebase.js"></script>
-       <script type = "module" src = "src/js/auth.js"></script>
-    </body>
-  </html>
+       #openNoticeBoard
+       {
+         margin-left: 0px;
+         margin-top: 50px;
+         opacity: 1;
+       }
+
+
+       .noticeBoard
+       {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-end;
+       }
+*/
+       #openNoticeBoard
+       {
+           border: 0;
+           border-radius: 5px;
+           color: black;
+           padding: 10px 25px;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+           cursor: pointer;
+       }
+        #saveNotice
+       {
+           border-radius: 5px;
+           color: white;
+           padding: 10px 25px;
+           border: 1;
+           border: 3px solid green;
+           box-shadow: 0 2px 4px green;
+/*            box-shadow: 0 2px 4px rgba(0,0,0,0.5); */
+           cursor: pointer;
+       }
+
+
+       .noticeBoard
+       {
+         position: relative;
+         left: 20px;
+       }
+
+       #openNoticeBoard
+       {
+         position: absolute;
+         top: 300px;
+         left: 400px;
+         opacity: 0;
+         pointer-events: none;
+         width: 15%;
+         font-size: larger;
+
+       }
+       #openNoticeBoard.show
+       {
+         opacity: 1;
+         pointer-events: auto;
+       }
+
+                   /*modal container covers the entire page*/
+       .modal-container
+       {
+           /*To make the content of the model cover the entire page, we will add:*/
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           opacity: 1;
+           /*
+            Set whether or not an element should react to pointer events
+            When its set to none, it doesn't react to pointer events.
+           */
+           pointer-events: auto;
+/*            position: fixed;
+           top: 0;
+           left: 950px; */
+           width: 60vh;
+           height: 100vh;
+           /*With this, the modal nicely fades in and fades out.*/
+           transition: opacity 0.3s ease;
+       }
+       .modal-container.show
+       {
+           /*The element reacts to pointer events. */
+           pointer-events: auto;
+           opacity: 1;
+       }
+       .modal-container.hide
+       {
+           /*The element reacts to pointer events. */
+           pointer-events: none;
+           opacity: 0;
+       }
+
+       .modal
+       {
+   /*      background-color:rgba(107,178,61,255);*/
+
+/*            background-color: rgb(219, 208, 208);
+           padding:30px 50px;
+           border-radius: 5px; */
+           border-radius: 5px;
+           width: 600px;
+           /*This ensures that it will be kept within the browser width*/
+           max-width: 100%;
+           height: 60%;
+           /*
+           display: flex;
+           flex-direction: column;
+           text-align: center;
+           */
+           position: relative;
+           resize: both;
+           overflow: auto;
+       }
+
+       /*
+       .modal h1
+       {
+           margin: 0;
+       }
+       */
+
+       .modal p
+       {
+           font-size: 14px;
+       }
+
+       .noticeBoardTitle
+       {
+         position: relative;
+       }
+
+
+
+       #h1
+       {
+         position: absolute;
+         left: 170px;
+         color: white;
+       }
+/*
+       .cross
+       {
+         position: absolute;
+       }
+       */
+       .cross
+     {
+         position: absolute;
+         right: 0;
+         font-size:5ch;
+         cursor: pointer;
+         color: white;
+      }
+
+       #saveNotice
+       {
+         position: absolute;
+         bottom: 10px;
+         left: 180px;
+
+       }
+
+       #noticeBoardContent
+       {
+         background: transparent;
+         color: white;
+         letter-spacing: 0;
+         font-size:x-large;
+         background-color: rgba(0,0,0,0.5);
+         position: absolute;
+         top:40px;
+         width: 100%;
+         height: 90%;
+       }
+
+       #icon
+       {
+         width: 10%;
+         height: 10%;
+       }
+
+
+
+       html,body
+       {
+           overflow-x: show; /*horizontal scroll bar*/
+           overflow-y: show; /*vertical scroll bar*/
+       }
+
+       @media (max-width: 600px){
+         #openNoticeBoard
+         {
+           top: 10px;
+           left: 100px;
+           width: 50%;
+         }
+
+         .modal{
+           position: absolute;
+           top:10px;
+           left:40px;
+           width: 90%;
+         }
+         #noticeBoardContent
+         {
+           width: 80%;
+           margin-left: 15px;
+           font-size: 14px;
+         }
+
+         #h1
+         {
+           position: absolute;
+           font-size: 20px;
+         }
+
+       }
+
+   </style>
+</head>
+
+  <!--  Previous Navbar Functionality
+  <header>
+    <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'index.html'" alt="">
+  <nav>
+    <ul class="navLinks">
+      <li>   <a class="button"> <button id = "impContacts" onclick = "location.href = 'importantContacts.html'"> Important Contacts </button> </a> </li>
+    <li> <div class = "dropdown"> <button class = "dropbtn"> Resources
+      <i class = "fa fa-caret-down"> </i> </button> </a>
+      <div class = "dropdown-content">
+        <a href="#">Site Visit Photos</a>
+        <a href="#">Link 2</a>
+     </div> </li>
+   </div>
+    <li>  <a class="button" id = "logout"><button id = "logout" onclick = "location.href = 'index.html'">Logout</button></a> </li>
+    </ul>
+  </nav>
+
+</header> -->
+<body onload="updateNoticeBoardContent()">
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxs-plane-alt'></i>
+      <span class="logo_name">MavsAbroad Japan</span>    </div>
+    <ul class="nav-links">
+      <li>
+        <a class = "sub" href="importantContacts.html">
+          <i class='bx bx-phone' ></i>
+          <span class="link_name">Important Contacts</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a class = "sub" href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Resources</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Resources</a></li>
+          <li><a href="#">Site Visit Photos</a></li>
+          <li><a href="#">Locations Preview</a></li>
+          <li><a href="#">Other resources</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="weather.html">
+          <i class='bx bx-cloud' ></i>
+          <span class="link_name">Weather</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="weather.html">Weather</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="#">
+          <i class='bx bx-bell' ></i>
+          <span class="link_name">Announcement</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Announcement</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="tripGuide.html">
+          <i class='bx bx-location-plus' ></i>
+          <span class="link_name">Trip Guide</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="tripGuide.html">Trip Guide</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="japanesePhrases.html">
+          <i class='bx bx-pencil' ></i>
+          <span class="link_name">Japanese Phrases</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="japanesePhrases.html">Japanese Phrases</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="currency.html">
+          <i class='bx bx-dollar-circle' ></i>
+          <span class="link_name">Currency Exchange</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="currency.html">Currency Exchange</a></li>
+        </ul>
+      </li>
+      <li>
+        <a class = "sub" href="schedule.html">
+          <i class='bx bx-calendar' ></i>
+          <span class="link_name">Schedule</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="schedule.html">Schedule</a></li>
+        </ul>
+      </li>
+      <li class = "log">
+        <a class = "sub" href="login.html">
+          <i class='bx bx-log-in' ></i>
+          <span class="link_name">Login</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="login.html">Login</a></li>
+        </ul>
+      </li>
+      <li class = "sign">
+        <a class = "sub" href="signup.html">
+          <i class='bx bx-user-check' ></i>
+          <span class="link_name">Signup</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="signup.html">Signup</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Professor Aiken</div>
+        <div class="job">Admin</div>
+      </div>
+      <i class='bx bx-log-out' id = "logout"></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'index.html'" alt="">
+    </div>
+  </section>
+
+  <div class="biggerContainer">
+     <div class="container">
+
+
+         <div class="noticeBoard">
+
+           <button id="openNoticeBoard">Notice Board
+ <!--          <i id='icon' class="far fa-clipboard"></i> -->
+             <img id = 'icon' src = "src/images/icons/noticeBoard.png">
+           </button>
+
+           <div class="modal-container" id="modal_container">
+
+                   <div class="modal">
+                       <div id="noticeBoardTitle">
+                         <span class="cross" id="close">&times;</span>
+                         <h1 id="h1">NOTICE</h1>
+                       </div>
+
+                       <textarea contenteditable="true" id="noticeBoardContent" class = "noticeBoardContent">
+                       </textarea>
+
+                       <button id="saveNotice">
+                         Save
+                       </button>
+
+                   </div>
+           </div>
+         </div>
+
+         <div class="buttonContainer">
+           <div class="image"></div>
+           <button class="firstButton" id = "trip" onclick = "location.href= 'tripGuide.html'">Trip Guide</button>
+           <button class="secondButton" onclick = "location.href = 'schedule.html'">Schedule</button>
+           <button class="thirdButton" onclick = "location.href = 'currency.html'">Currency Exchange</button>
+           <button class="fourthButton" onclick = "location.href = 'japanesePhrases.html'">Japanese Phrases</button>
+       </div>
+
+     </div>
+
+
+     </div>
+    <script src = "src/js/app.js"></script>
+    <script src = "src/js/feed.js"></script>
+    <script type = "module" src = "src/js/auth.js"></script>
+    <script src="src/js/firebase2.js" type="module"></script>
+    <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
+    </script>
+    <script type="text/javascript">
+  const open = document.getElementById('openNoticeBoard');
+  const modalContainer = document.getElementById("modal_container");
+  const close = document.getElementById("close");
+  const save = document.getElementById("saveNotice");
+
+  close.addEventListener('click',()=>{
+//          modalContainer.classList.remove('show');
+      modalContainer.classList.add('hide');
+      open.classList.add('show');
+
+//          open.classList.add('show');
+  })
+
+  open.addEventListener('click', ()=>{
+      //If the user clicks the open button, we will add a class show
+      //which will show the modal by setting opacity to 1
+      open.classList.remove('show');
+      modalContainer.classList.remove('hide');
+      modalContainer.classList.add('show');
+  })
+
+  save.addEventListener('click', ()=>{
+  })
+</script>
+
+</body>
+
+</html>
