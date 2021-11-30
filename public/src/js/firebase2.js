@@ -7,14 +7,13 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-apiKey: "AIzaSyCcqMnmUFqZR3hMweRHnnDbHifeCVNx96I",
-authDomain: "mavsabroadjapan-e105a.firebaseapp.com",
-databaseURL: "https://mavsabroadjapan-e105a-default-rtdb.firebaseio.com",
-projectId: "mavsabroadjapan-e105a",
-storageBucket: "mavsabroadjapan-e105a.appspot.com",
-messagingSenderId: "685420431938",
-appId: "1:685420431938:web:f57a1a85d092dd56d0bbdb",
-measurementId: "G-84WQ8DL91P"
+  apiKey: "INSERT HERE",
+  authDomain: "INSERT HERE",
+  projectId: "INSERT HERE",
+  storageBucket: "INSERT HERE",
+  messagingSenderId: "INSERT HERE",
+  appId: "INSERT HERE",
+  measurementId: "INSERT HERE"
 };
 
 // Initialize Firebase
@@ -94,7 +93,7 @@ check2.addEventListener('click', e => {
   })
 }
 
-
+var noticeBoardDatabase;
 
 function updateNoticeBoardContent()
 {
@@ -106,7 +105,8 @@ const dbref = ref(database);
 get(child(dbref,"noticeBoard")).then((snapshot)=>{
   if(snapshot.exists())
   {
-      document.getElementById("noticeBoardContent").innerHTML = snapshot.val().info;
+      noticeBoardDatabase =  snapshot.val().info;
+      document.getElementById("noticeBoardContent").innerHTML = noticeBoardDatabase;
   }
 })
 }

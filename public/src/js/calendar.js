@@ -1,5 +1,10 @@
-import { database } from './firebase.js';
-import { getDatabase, ref, set, child, update, remove, get} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+/*jshint esversion: 6 */
+import { db } from './firebase.js';
+
+import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField, setDoc,  } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
+
+const ScheduleCollectionRef = collection(db, 'schedule');
+const regex = new RegExp('4MuDDqamlKl8fVwhMMWn');
 
 var calendar = document.getElementById("calendar-table");
 var gridTable = document.getElementById("table-body");
@@ -59,6 +64,7 @@ function createCalendar(date, side) {
                day: "numeric",
                year: "numeric"
             });
+            console.log("Date is:"+ selectedDate.toLocaleString);
 
             selectedDayBlock = currentDay;
             setTimeout(() => {
@@ -114,28 +120,72 @@ var nextButton = document.getElementById("next");
 prevButton.onclick = function changeMonthPrev() {
    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
    createCalendar(currentDate, "left");
-}
+};
 nextButton.onclick = function changeMonthNext() {
    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
    createCalendar(currentDate, "right");
+};
+function addEvent(title, desc)
+{
+
+  // globalEventObj[NewDate] = {title:desc};
+
+   var date = selectedDate.toLocaleString();
+   var DateArray = date.split(',');
+   var NewDate = (DateArray[0].split('/').join('-'));
+   const docRef = addDoc(collection(db, "Schedule"),
+   {
+      Date: NewDate,
+      EventTitle: title,
+      EventDescription: desc
+   });
 }
 
-function addEvent(title, desc) {
-   if (!globalEventObj[selectedDate.toDateString()]) {
-      globalEventObj[selectedDate.toDateString()] = {};
-   }
-   globalEventObj[selectedDate.toDateString()][title] = desc;
-}
+ async function showEvents()
+{
+   var date = selectedDate.toLocaleString();
+   var DateArray = date.split(',');
+   var NewDate = (DateArray[0].split('/').join('-'));
 
-function showEvents() {
    let sidebarEvents = document.getElementById("sidebarEvents");
-   let objWithDate = globalEventObj[selectedDate.toDateString()];
+   //let objWithDate = globalEventObj[selectedDate.toDateString()];
+
+
+   console.log (selectedDate.toLocaleString());
+
+
+   const querySnapshot =  await getDataFromFirestore(NewDate);
+   const  databaseObjects = [];
+   console.log(querySnapshot);
+   querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      let date = doc.data().Date;
+      let Event = doc.data().EventDescription;
+      let title = doc.data().EventTitle;
+      databaseObjects.push({
+         date: date,
+         event: Event,
+         title: title
+      });
+      //console.log(doc.id, " => ", doc.data().Date,doc.data().EventDescription,doc.data().EventTitle);
+   });
+   console.log("Database Items "+databaseObjects);
+   databaseObjects.forEach(item => console.log(item.date + " " + item.event + " " + item.title));
+   if (!globalEventObj[NewDate])
+    {
+      globalEventObj[NewDate] = {};
+   }
+   databaseObjects.forEach(item => globalEventObj[item.date][item.title]= item.event);
+
+  // globalEventObj[Date_Today][title] = desc;
+
+   let objWithDate = globalEventObj[NewDate];
 
    sidebarEvents.innerHTML = "";
 
    if (objWithDate) {
       let eventsCount = 0;
-      for (key in globalEventObj[selectedDate.toDateString()]) {
+      for (var key in globalEventObj[NewDate]) {
          let eventContainer = document.createElement("div");
          eventContainer.className = "eventCard";
 
@@ -167,7 +217,7 @@ function showEvents() {
    } else {
       let emptyMessage = document.createElement("div");
       emptyMessage.className = "empty-message";
-      emptyMessage.innerHTML = "Sorry, no events to selected date";
+      emptyMessage.innerHTML = "Sorry, no events on selected date";
       sidebarEvents.appendChild(emptyMessage);
       let emptyFormMessage = document.getElementById("emptyFormTitle");
       emptyFormMessage.innerHTML = "No events now";
@@ -200,13 +250,13 @@ gridTable.onclick = function (e) {
       year: "numeric"
    });
 
-}
+};
 
 var changeFormButton = document.getElementById("changeFormButton");
 var addForm = document.getElementById("addForm");
 changeFormButton.onclick = function (e) {
    addForm.style.top = 0;
-}
+};
 
 var cancelAdd = document.getElementById("cancelAdd");
 cancelAdd.onclick = function (e) {
@@ -219,21 +269,23 @@ cancelAdd.onclick = function (e) {
    for (let i = 0; i < labels.length; i++) {
       labels[i].className = "";
    }
-}
+};
 
 var addEventButton = document.getElementById("addEventButton");
 addEventButton.onclick = function (e) {
    let title = document.getElementById("eventTitleInput").value.trim();
    let desc = document.getElementById("eventDescInput").value.trim();
 
+
    if (!title || !desc) {
       document.getElementById("eventTitleInput").value = "";
       document.getElementById("eventDescInput").value = "";
       let labels = addForm.getElementsByTagName("label");
-      for (let i = 0; i < labels.length; i++) {
+      for (let i = 0; i < labels.length; i++)
+      {
          labels[i].className = "";
       }
-      return;
+     return;
    }
 
    addEvent(title, desc);
@@ -252,4 +304,20 @@ addEventButton.onclick = function (e) {
       labels[i].className = "";
    }
 
+};
+
+async function getDataFromFirestore(NewDate)
+{
+   //const docRef = doc(db, "Schedule");
+   const scheduleRef = await collection(db, "Schedule");
+   const q = await  query(scheduleRef, where("Date", "==", NewDate));
+   const querySnapshot = await getDocs(q);
+   querySnapshot.forEach((doc) => {
+   // doc.data() is never undefined for query doc snapshots
+   let date = doc.data().Date;
+   let Event = doc.data().EventDescription;
+   let title = doc.data().EventTitle;
+   console.log(doc.id, " => ", doc.data().Date,doc.data().EventDescription,doc.data().EventTitle);
+   });
+   return querySnapshot;
 }

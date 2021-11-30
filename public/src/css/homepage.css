@@ -83,39 +83,6 @@ button
     transition: all 0.3s ease 0s;
 }
 
-/*
-.nav
-{
-    width: 100%;
-    background: black;
-    overflow: auto;
-}
-
-
-ul
-{
-    padding: 0;
-    margin: 0 0 0 150px;
-    list-style: none;
-}
-
-li
-{
-float: left;
-}
-
-nav a
-{
-    width: 100px;
-    display: block;
-    padding: 20px 15px;
-    text-decoration: none;
-    font-family: Arial;
-    color: #f2f2f2;
-    text-align: center;
-}
-
-*/
 .biggerContainer
 {
     height: 100vh;
@@ -123,7 +90,7 @@ nav a
     position: relative;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url("../images/mountain\ and\ temple.jpg");
+    background-image: url("../images/mountainandtemple.jpg");
     padding-left: 20px;
 }
 
@@ -135,21 +102,9 @@ flex items*/
 .container
 {
 
-/*    position: absolute; */
     height: 100%;
     width: 100%;
     position: relative;
-/*
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    */
-    /*
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    */
-
 }
 
 .buttonContainer
@@ -157,29 +112,23 @@ flex items*/
     position: absolute;
     right: 0;
     top: 0;
-    height: 100%;
-    width: 50%;
-
-
+    height: 88%;
+    width: 45%;
     display: flex;
     /*establishes the direction flex items are placed in the flex container*/
     flex-direction: column;
     justify-content: space-evenly;
-    /*This is the default behavior for how flex items are laid out
-    along the cross axis. */
-/*    align-items: center;
-    text-align: center; */
 }
 
 .firstButton
 {
-    width: 300px;
-    height: 100px;
+    width: 280px;
+    height: 70px;
     border: none;
     color: white;
     border-radius: 4px;
     transition: ease-out 0.3s;
-    font-size: 2rem;
+    font-size: 1.3rem;
     outline: none;
     border: 3px solid #42FBF2;
     position: relative;
@@ -220,13 +169,13 @@ flex items*/
 
 .secondButton
 {
-    width: 300px;
-    height: 100px;
+    width: 280px;
+    height: 70px;
     border: none;
     color: white;
     border-radius: 4px;
     transition: ease-out 0.3s;
-    font-size: 2rem;
+    font-size: 1.3rem;
     outline: none;
     border: 3px solid #42FBF2;
     background: rgba(0,0,0,0.15);
@@ -270,13 +219,13 @@ flex items*/
 
 .thirdButton
 {
-    width: 300px;
-    height: 100px;
+    width: 285px;
+    height: 70px;
     border: none;
     color: white;
     border-radius: 4px;
     transition: ease-out 0.3s;
-    font-size: 2rem;
+    font-size: 1.2rem;
     outline: none;
     border: 3px solid #42FBF2;
     background: rgba(0,0,0,0.15);
@@ -318,13 +267,13 @@ flex items*/
 
 .fourthButton
 {
-    width: 300px;
-    height: 100px;
+    width: 280px;
+    height: 70px;
     border: none;
     color: white;
     border-radius: 4px;
     transition: ease-out 0.3s;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     outline: none;
     border: 3px solid #42FBF2;
     background: rgba(0,0,0,0.15);
@@ -691,7 +640,7 @@ flex items*/
     background: rgba(248, 244, 244, 0.15);
     position: relative;
     z-index: 1;
-]}
+}
 
 .saveButton:hover
 {
