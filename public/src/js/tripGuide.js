@@ -1,5 +1,5 @@
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2F1Z2F0MTIzIiwiYSI6ImNrdzh1a3g1YTBlZWwycW9yNTRsYmgwYTEifQ.EBz_yOuNl1vQFCo0Lwi0ng';
+mapboxgl.accessToken = 'INSERT HERE';
 
 //CREATE A MAP
 const map = new mapboxgl.Map({
