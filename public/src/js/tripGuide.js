@@ -1,4 +1,4 @@
-
+//Need MapBox API
 mapboxgl.accessToken = 'INSERT HERE';
 
 //CREATE A MAP

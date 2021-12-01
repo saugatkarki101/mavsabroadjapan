@@ -1,6 +1,7 @@
+//This file not used for final version.
 //Mapbox Trip Guide
-//May or may not be implemeted 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhd25mcm9zdDE0IiwiYSI6ImNrdTR2NG5rMjA1bGgyb21sc3hjdnR0dnEifQ.mV6ODeVDlgCXHBc8vVKHKg';
+//May or may not be implemeted
+mapboxgl.accessToken = 'INSERT HERE';
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation,{
   enableHighAccuracy: true
 })

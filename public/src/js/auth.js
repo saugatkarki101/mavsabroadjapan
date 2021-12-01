@@ -82,7 +82,7 @@ loginForm.addEventListener('submit', (e) => {
 //
 //  });
 });}
-
+//If admin is logged in, display some elements, else dont.
 onAuthStateChanged(auth, (user) => {
   const addForm = document.getElementById("addPhrases");
   const logoutSymbol = document.getElementById("logout");
@@ -94,6 +94,9 @@ onAuthStateChanged(auth, (user) => {
   const signUpSymbol = document.getElementsByClassName("sign")[0];
   const loginSymbol = document.getElementsByClassName("log")[0];
   const profileName = document.getElementsByClassName("profile_name")[0];
+  const addschdule = document.getElementById("addForm");
+  const addbutton = document.getElementById("changeFormButton");
+
   if(user){
     console.log('user logged in: ', user);
     if(addForm) { addForm.style.display = "block";}
@@ -102,6 +105,8 @@ onAuthStateChanged(auth, (user) => {
     if(signUpSymbol) {signUpSymbol.style.display = "block";}
     if(saveSymbol) {saveSymbol.style.display = "block";}
     if(save1Symbol) {save1Symbol.style.display = "block";}
+    if(addschdule) {addschdule.style.display = "block";}
+    if(addbutton) {addbutton.style.display = "block";}
     if(box) {box.setAttribute('contenteditable', true);}
     if(noticeBoardContenti) {noticeBoardContenti.readonly = false;}
     if(loginSymbol) {loginSymbol.style.display = "none";}
@@ -114,6 +119,8 @@ onAuthStateChanged(auth, (user) => {
     if(nameJob) {nameJob.style.display = "none";}
     if(signUpSymbol) {signUpSymbol.style.display = "none";}
     if(saveSymbol) {saveSymbol.style.display = "none";}
+    if(addschdule) {addschdule.style.display = "none";}
+    if(addbutton) {addbutton.style.display = "none";}
     if(box) {box.setAttribute('contenteditable', false);}
     if(noticeBoardContenti) {noticeBoardContenti.setAttribute('readonly', true);}
     if(save1Symbol) {save1Symbol.style.display = "none";}

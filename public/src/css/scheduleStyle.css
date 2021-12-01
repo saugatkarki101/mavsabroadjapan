@@ -1,3 +1,4 @@
+/* This css style for schedule.html */
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -303,6 +304,15 @@ body {
  }
 
  @media (max-width:992px) {
+   header
+   {
+     position: relative;
+     right: 35%;
+   }
+   .logoName
+   {
+     position: absolute;
+   }
     .content-wrapper {
        margin-left: 0;
     }
@@ -324,6 +334,15 @@ body {
  }
 
  @media (max-width:767px) {
+   header
+   {
+     position: relative;
+     right: 35%;
+   }
+   .logoName
+   {
+     position: absolute;
+   }
     .content-wrapper .container {
        width: auto;
     }
@@ -337,6 +356,11 @@ body {
  }
 
  @media (max-width:450px) {
+   header
+   {
+     position: relative;
+     right: 35%;
+   }
     .content-wrapper {
        padding-left: 0;
        padding-right: 0;
@@ -345,10 +369,23 @@ body {
        padding-left: 0;
        padding-right: 0;
     }
+    .logoName
+    {
+      position: absolute;
+    }
  }
 
  .logoName
  {
-     cursor: pointer;
-     width: 200px;
+   position: relative;
+   left: 200px;
+   cursor: pointer;
+   width: 200px;
  }
+
+ @media (max-width: 370px){
+   .logoName
+   {
+     width: 150px;
+   }
+}

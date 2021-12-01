@@ -1,11 +1,11 @@
-
+//This file not used for final version.
 
 var map;
 //Stores the existing place information
 var currContent="";
 var contentString="";
 var updateBtnClicked= false;
-var currentPlaceName; 
+var currentPlaceName;
 
 
 
@@ -106,7 +106,7 @@ function initMap()
       { loc : [{lat: 35.676554455246105, lng: 139.69929907583543}], type:"info", placeInfo:"Meiju Shrine",moreInfo:meijuInfo },
       { loc : [{lat: 35.70952048034661, lng: 139.77490331225505}], type:"info", placeInfo:"Ameyoko",moreInfo:ameyokoInfo },
       { loc : [{lat: 35.70229437453533, lng: 139.77447151632572}], type:"info", placeInfo:"Akihabara",moreInfo:akihabaraInfo },
-      { loc : [{lat: 35.61947512903015, lng: 139.7764423815267}], type:"info", placeInfo:"Miraikan",moreInfo:miraikanInfo },      
+      { loc : [{lat: 35.61947512903015, lng: 139.7764423815267}], type:"info", placeInfo:"Miraikan",moreInfo:miraikanInfo },
       { loc : [{lat: 35.627118473334065, lng: 139.78315574290983}], type:"info", placeInfo:"TeamLab Borderless",moreInfo:teamLab },
       { loc : [{lat: 35.64992664214639, lng: 139.69261146619442}], type:"info", placeInfo:"Starbucks Reserve Roastery",moreInfo:starbucksReserve },
       { loc : [{lat: 35.63824687857572, lng: 139.7360637894642}], type:"info", placeInfo:"Sengakuji Temple",moreInfo:sengakuji },
@@ -115,8 +115,8 @@ function initMap()
       { loc : [{lat: 35.295152855337165, lng: 135.48474266673443}], type:"info", placeInfo:"Kyoto",moreInfo:kyoto },
       { loc : [{lat: 35.00232814196444, lng: 135.77567696820353}], type:"info", placeInfo:"Gion",moreInfo:gion },
       { loc : [{lat: 34.96805425817616, lng: 135.77280041169254}], type:"info", placeInfo:"Fushimi Inari Shrine and Torii Gates",moreInfo:fushimi },
-      { loc : [{lat: 35.009508399983936, lng: 135.66675710304258}], type:"info", placeInfo:"Arashiyama Bamboo Grove",moreInfo:arashiyama },            
-      { loc : [{lat: 34.68610566228876, lng: 135.84322657671925}], type:"info", placeInfo:"Nara Park",moreInfo:nara },            
+      { loc : [{lat: 35.009508399983936, lng: 135.66675710304258}], type:"info", placeInfo:"Arashiyama Bamboo Grove",moreInfo:arashiyama },
+      { loc : [{lat: 34.68610566228876, lng: 135.84322657671925}], type:"info", placeInfo:"Nara Park",moreInfo:nara },
     ];
 
   //This is the place where the map will be centered.
@@ -168,18 +168,18 @@ function initMap()
             }
         );
 
-    
+
         google.maps.event.addListener(map, 'click', function(event){
             console.log("okay");
             markerInfo.push( { loc : [{lat: 35.66142202207694, lng: 139.7027798199851}], type:"info", placeInfo:"Shibuya Crossing",moreInfo:shibuyaInfo});
             save(event.latLong);
         })
-    
+
     }
 
 }
 /*
- THESE ARE SOME OF THE SECTIONS WE ARE STILL WORKING ON. THAT'S WHY THEY ARE ONLY COMMENTED OUT AND NOT DELETED YET. 
+ THESE ARE SOME OF THE SECTIONS WE ARE STILL WORKING ON. THAT'S WHY THEY ARE ONLY COMMENTED OUT AND NOT DELETED YET.
 function update()
 {
     currContent = document.getElementById("textArea").value;

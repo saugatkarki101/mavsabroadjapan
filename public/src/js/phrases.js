@@ -1,3 +1,4 @@
+//IMPORT required functions from firebase and firebase variables from other files.
 import { db, auth } from './firebase.js';
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField  } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 import {  onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js";
@@ -6,6 +7,7 @@ import {  onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.1/fir
 const phrasesList = document.querySelector('#swiper-wrapper');
 const form = document.querySelector('#addPhrases');
 
+//for each document in database, render these in html
 function renderPhrases(doct){
   let slideDiv = document.createElement("div");
   let card = document.createElement("div");
@@ -57,6 +59,7 @@ function renderPhrases(doct){
     deleteDoc(doc(collection(db,"phrases"), id));
   });
 
+//if user is admin, display cross for deleting functionality.
   onAuthStateChanged(auth, (user) => {
     if(user){
       cross.style.display = 'block';

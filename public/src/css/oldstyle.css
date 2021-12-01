@@ -1,3 +1,4 @@
+/* This file just for referencing for debug purposes */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 *
@@ -63,7 +64,7 @@ header
 
 
 .navLinks li a
-{ 
+{
     color:black;
     transition: all 0.3s ease 0s;
 }
@@ -77,8 +78,8 @@ button
 {
     padding: 9px 25px;
     background-color: rgba(0,0,0,0);
-    border: 3px solid rgb(226, 98, 98);  
-    border-radius: 50px; 
+    border: 3px solid rgb(226, 98, 98);
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -149,12 +150,12 @@ flex items*/
     text-align: center;
     min-height: 100vh;
     */
-    
+
 }
 
 .buttonContainer
 {
-    position: absolute; 
+    position: absolute;
     height: 100%;
     width: 100%;
 
@@ -387,7 +388,7 @@ flex items*/
 .mapboxgl-popup-content
 {
     text-align:left;
-    font-family: 'Open Sans', sans-serif;  
+    font-family: 'Open Sans', sans-serif;
 }
 
 #contentBox
@@ -423,5 +424,3 @@ flex items*/
 {
     font-size: large;
 }
-
-

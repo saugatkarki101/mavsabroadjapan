@@ -110,6 +110,7 @@ get(child(dbref,"noticeBoard")).then((snapshot)=>{
   }
 })
 }
+
 //Function within modules won't be available to access globally.
 //So, it needs to be attached to window.
 window.updateNoticeBoardContent = updateNoticeBoardContent

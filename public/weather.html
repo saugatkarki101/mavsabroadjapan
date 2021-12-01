@@ -1,3 +1,4 @@
+ <!-- This page is for weather feature -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable= no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title> Weather </title>
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -24,8 +25,10 @@
     <meta name="msapplication-TileImage" content="/src/images/icons/app-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#fff">
     <meta name="theme-color" content="#3f51b5">
+    <!-- Script should be loaded first before anything to call for API confirmation  -->
     <script src="src/js/weather.js" defer></script>
 
+ <!-- No css file associated with this page. All styling here. -->
   <style>
   /* body {
     display: flex;
@@ -376,7 +379,7 @@
     font-size: 26px;
     font-weight: 600;
   }
-
+ /* For screen size in mobile version */
   @media (max-width: 600px) {
     .weatherCard
     {
@@ -395,6 +398,7 @@
 </head>
 
 <body>
+  <!-- Side navigation bar -->
   <div class="sidebar close">
     <div class="logo-details">
       <i class='bx bxs-plane-alt'></i>
@@ -409,7 +413,8 @@
           <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
         </ul>
       </li>
-      <li>
+      <!-- Resources to be implemented later. -->
+      <!-- <li>
         <div class="iocn-link">
           <a class = "sub" href="#">
             <i class='bx bx-collection' ></i>
@@ -423,7 +428,7 @@
           <li><a href="#">Locations Preview</a></li>
           <li><a href="#">Other resources</a></li>
         </ul>
-      </li>
+      </li> -->
       <li>
         <a class = "sub" href="weather.html">
           <i class='bx bx-cloud' ></i>
@@ -498,6 +503,7 @@
       <img class="logoName" src="src/images/logoCropped.png" onclick = "location.href = 'index.html'" alt="">
     </div>
   </section>
+  <!-- This is for weather section -->
   <div class = "biggerContainer">
   <div class="weatherCard">
     <div class="search">
@@ -525,6 +531,7 @@
 <script src = "src/js/feed.js"></script>
 <script type = "module" src = "src/js/auth.js"></script>
 <script>
+//Side bar navigation expansion script
 let arrow = document.querySelectorAll(".arrow");
 for (var i = 0; i < arrow.length; i++) {
   arrow[i].addEventListener("click", (e)=>{

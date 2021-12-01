@@ -1,8 +1,10 @@
+//Currency feature script
+//get necessary elements from the html file.
 const dropList = document.querySelectorAll("form select"),
 fromCurrency = document.querySelector(".from select"),
 toCurrency = document.querySelector(".to select"),
 getButton = document.querySelector("form button");
-
+//flag loading with respect to countries.
 for (let i = 0; i < dropList.length; i++) {
     for(let currency_code in country_list){
         let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "JPY" ? "selected" : "";
@@ -22,11 +24,12 @@ function loadFlag(element){
         }
     }
 }
-
+//load action of a window
 window.addEventListener("load", ()=>{
     getExchangeRate();
 });
 
+//when clicked exchange button
 getButton.addEventListener("click", e =>{
     e.preventDefault();
     getExchangeRate();
@@ -41,7 +44,7 @@ exchangeIcon.addEventListener("click", ()=>{
     loadFlag(toCurrency);
     getExchangeRate();
 })
-
+//Calling API
 function getExchangeRate(){
     const amount = document.querySelector("form input");
     const exchangeRateTxt = document.querySelector("form .exchange-rate");

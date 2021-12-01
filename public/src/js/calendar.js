@@ -1,9 +1,12 @@
 /*jshint esversion: 6 */
+//import variables from other file.
 import { db } from './firebase.js';
-
+//import functions from firebase module
 import { collection, addDoc, deleteDoc, getDocs, doc, getDoc, orderBy, onSnapshot, where, query, updateDoc, deleteField, setDoc,  } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 
+//necessary variables and elements from html file in schedule.html
 const ScheduleCollectionRef = collection(db, 'schedule');
+//general expression of document in firestore.
 const regex = new RegExp('4MuDDqamlKl8fVwhMMWn');
 
 var calendar = document.getElementById("calendar-table");
@@ -15,6 +18,7 @@ var globalEventObj = {};
 
 var sidebar = document.getElementById("sidebar");
 
+//creating calendar view
 function createCalendar(date, side) {
    var currentDate = date;
    var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
@@ -33,7 +37,7 @@ function createCalendar(date, side) {
    } else {
       gridTable.className = "animated fadeOutLeft";
    }
-
+//setting date
    setTimeout(() => {
       gridTable.innerHTML = "";
 
@@ -125,6 +129,7 @@ nextButton.onclick = function changeMonthNext() {
    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
    createCalendar(currentDate, "right");
 };
+//add events by admin function.
 function addEvent(title, desc)
 {
 
@@ -140,7 +145,7 @@ function addEvent(title, desc)
       EventDescription: desc
    });
 }
-
+//show events main functionality in sidebar.
  async function showEvents()
 {
    var date = selectedDate.toLocaleString();
@@ -223,7 +228,7 @@ function addEvent(title, desc)
       emptyFormMessage.innerHTML = "No events now";
    }
 }
-
+//showing events on the sidebar
 gridTable.onclick = function (e) {
 
    if (!e.target.classList.contains("col") || e.target.classList.contains("empty-day")) {
@@ -251,13 +256,12 @@ gridTable.onclick = function (e) {
    });
 
 };
-
 var changeFormButton = document.getElementById("changeFormButton");
 var addForm = document.getElementById("addForm");
 changeFormButton.onclick = function (e) {
    addForm.style.top = 0;
 };
-
+//cancelling labels on the form.
 var cancelAdd = document.getElementById("cancelAdd");
 cancelAdd.onclick = function (e) {
    addForm.style.top = "100%";
@@ -270,7 +274,7 @@ cancelAdd.onclick = function (e) {
       labels[i].className = "";
    }
 };
-
+//adding events by admin
 var addEventButton = document.getElementById("addEventButton");
 addEventButton.onclick = function (e) {
    let title = document.getElementById("eventTitleInput").value.trim();
@@ -290,7 +294,7 @@ addEventButton.onclick = function (e) {
 
    addEvent(title, desc);
    showEvents();
-
+//show events on selected dates.
    if (!selectedDayBlock.querySelector(".day-mark")) {
       selectedDayBlock.appendChild(document.createElement("div")).className = "day-mark";
    }
@@ -305,7 +309,7 @@ addEventButton.onclick = function (e) {
    }
 
 };
-
+//accessing documents from firestore
 async function getDataFromFirestore(NewDate)
 {
    //const docRef = doc(db, "Schedule");

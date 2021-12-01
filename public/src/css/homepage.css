@@ -1,3 +1,4 @@
+/* Css styling for homepage */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
 *
@@ -12,8 +13,15 @@
 html,body
 {
     /*These two statements below help remove horizontal and vertical scroll bars*/
-    overflow-x: show; /*horizontal scroll bar*/
-    overflow-y: show; /*vertical scroll bar*/
+   overflow-x: hidden; /*horizontal scroll bar*/
+   overflow-y: scroll; /*vertical scroll bar*/
+}
+
+body
+{
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url("../images/mountainandtemple.jpg");
 }
 
 header
@@ -88,9 +96,6 @@ button
     height: 100vh;
     width: 100vw;
     position: relative;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-image: url("../images/mountainandtemple.jpg");
     padding-left: 20px;
 }
 
@@ -821,20 +826,20 @@ color: #999;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 770px) {
   /* .sidebar.close .nav-links li .sub-menu{
     display: none;
   } */
 
   .firstButton, .secondButton, .thirdButton, .fourthButton
   {
-    width: 200px;
-    height: 90px;
+    width: 170px;
+    height: 60px;
     border: none;
     color: white;
     border-radius: 3px;
     transition: ease-out 0.3s;
-    font-size: 1.2rem;
+    font-size: 1rem;
     outline: none;
     border: 3px solid #42FBF2;
     background: rgba(0,0,0,0.15);
@@ -850,7 +855,7 @@ color: #999;
 
   .buttonContainer
   {
-    height: 90%;
+    height: 70%;
     width: 70%;
     justify-content: space-evenly;
     position: absolute;

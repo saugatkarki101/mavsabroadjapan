@@ -1,3 +1,4 @@
+<!-- This is for homepage. The page user and admin interacts with. Every page is accessed with it.-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,6 +104,7 @@
            /*The element reacts to pointer events. */
            pointer-events: none;
            opacity: 0;
+           display: none;
        }
 
        .modal
@@ -126,7 +128,7 @@
 
        .noticeBoardTitle
        {
-         position: relative;
+         position: absolute;
        }
 
 
@@ -149,10 +151,16 @@
 
        #saveNotice
        {
-         position: absolute;
+         /* position: absolute;
          bottom: 10px;
-         left: 180px;
-
+         left: 180px; */
+         width: 100px;
+         height: 60px;
+         z-index: 1;
+         position: relative;
+         font-size: 14px;
+         top: 83%;
+         right: 80%;
        }
 
        #noticeBoardContent
@@ -173,16 +181,27 @@
          width: 10%;
          height: 10%;
        }
-
-
-
-       html,body
+       @media(max-width: 1100px)
        {
-           overflow-x: hidden; /*horizontal scroll bar*/
-           overflow-y: hidden; /*vertical scroll bar*/
+         .firstButton, .secondButton, .thirdButton, .fourthButton
+         {
+           width: 200px;
+           height: 60px;
+         }
+
+         .modal
+         {
+           left: 10%;
+           width: 90%;
+         }
+
+         .buttonContainer
+         {
+           left: 70%;
+         }
        }
 
-       @media (max-width: 600px){
+       @media (max-width: 770px){
          #openNoticeBoard
          {
            top: 10px;
@@ -201,16 +220,49 @@
            width: 80%;
            margin-left: 15px;
            font-size: 14px;
+           height: 50%;
          }
 
          #h1
          {
            position: absolute;
            font-size: 20px;
+           left: 40px;
          }
 
+         #close
+         {
+           position: absolute;
+           left: 240px;
+         }
+         .buttonContainer
+         {
+           top: 260px;
+           left: auto;
+         }
+         #saveNotice
+        {
+            top: auto;
+            right: auto;
+            /* padding: 9px; */
+        }
        }
 
+       @media (max-width: 370px){
+         #close
+         {
+           position: absolute;
+           left: 200px;
+         }
+         .buttonContainer
+         {
+           top: 228px;
+         }
+         .logoName
+         {
+           width: 150px;
+         }
+      }
    </style>
 </head>
 
@@ -229,7 +281,8 @@
           <li><a class="link_name" href="importantContacts.html">Important Contacts</a></li>
         </ul>
       </li>
-      <li>
+      <!-- Resources to be implemented later. -->
+      <!-- <li>
         <div class="iocn-link">
           <a class = "sub" href="#">
             <i class='bx bx-collection' ></i>
@@ -243,7 +296,7 @@
           <li><a href="#">Locations Preview</a></li>
           <li><a href="#">Other resources</a></li>
         </ul>
-      </li>
+      </li> -->
       <li>
         <a class = "sub" href="weather.html">
           <i class='bx bx-cloud' ></i>
@@ -359,17 +412,14 @@
 
                        <textarea contenteditable="true" id="noticeBoardContent" class = "noticeBoardContent">
                        </textarea>
-
-                       <button id="saveNotice">
-                         Save
-                       </button>
-
                    </div>
            </div>
          </div>
 
          <div class="buttonContainer">
-           <div class="image"></div>
+           <button id="saveNotice">
+             Save
+           </button>
            <button class="firstButton" id = "trip" onclick = "location.href= 'tripGuide.html'">Trip Guide</button>
            <button class="secondButton" onclick = "location.href = 'schedule.html'">Schedule</button>
            <button class="thirdButton" onclick = "location.href = 'currency.html'">Currency Exchange</button>

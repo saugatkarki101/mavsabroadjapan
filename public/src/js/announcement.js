@@ -19,6 +19,8 @@ Date.prototype.timeNow = function () {
 
 var datetime = "Posted: " + new Date().today() + " @ " + new Date().timeNow();
 
+//for each document in database, render these in html
+
 function renderPhrases(doct){
   let slideDiv = document.createElement("div");
   let card = document.createElement("div");
@@ -62,6 +64,7 @@ function renderPhrases(doct){
     deleteDoc(doc(collection(db,"notice"), id));
   });
 
+//if admin is logged in, display cross.
   onAuthStateChanged(auth, (user) => {
     if(user){
       cross.style.display = 'block';

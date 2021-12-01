@@ -1,4 +1,4 @@
-/* This is for homepage and all other features besides login and signup */
+/* This is for all other features besides login,signup, weather and schedule */
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
 
@@ -666,6 +666,18 @@ flex items*/
   position: relative;
   background-image: url("../images/street.jpg");
 }
+.annimg
+{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  background-image: url("../images/sakura.jpg");
+}
 .swipercontainer
 {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -859,6 +871,12 @@ color: #999;
   }
 }
 
+@media (max-width: 370px){
+  .logoName
+  {
+    width: 150px;
+  }
+}
 /* All of these styles were used for previous navbar,
 keeping here just for reference */
 

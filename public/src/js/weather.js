@@ -1,5 +1,7 @@
+//Weather functionality. Need API key from openweathermap
 let weather = {
   apiKey: "INSERT HERE",
+  //fetching weather of the city
   fetchWeather: function (city) {
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -16,6 +18,7 @@ let weather = {
       })
       .then((data) => this.displayWeather(data));
   },
+  //display weather details
   displayWeather: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
@@ -36,7 +39,7 @@ let weather = {
     this.fetchWeather(document.querySelector(".search-bar").value);
   },
 };
-
+//Current location weather. Need OpenCage API
 let geocode = {
   reverseGeocode: function (latitude, longitude) {
     var apikey = "INSERT HERE";
