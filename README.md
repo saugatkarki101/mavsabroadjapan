@@ -29,4 +29,4 @@ https://v6.exchangerate-api.com/
 Currency exchange API key in public/src/js/currency.js
 
 # License
-This software is available under the MIT license.
+This software is available under the MIT License.
